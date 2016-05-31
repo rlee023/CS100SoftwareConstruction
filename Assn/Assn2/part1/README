@@ -1,0 +1,18 @@
+README
+
+Short version:
+
+As far as I'm concerned, I implemented everything I should have for part 1. It works with
+commands with no arguments, command with arguments, and exits properply using exit. 
+
+Long version:
+
+This is the README for myshell.cc. As instructed, I constructed a shell using c++ and 
+some c code. This is part of myshell, so this version allows to user to run commands with no arguments like pwd, or commands with multiple arguments, such as ps aux. 
+
+I used signals, so that the shell does not terminate when the users enter ctrl-c. Like 
+a shell, it exits via the command line command, exit. 
+
+As far as I can tell, I implemented all the functionality that part 1 should be able to do.
+I take in commands, both non and multi-arguments, I account for ctrl-c, and I exit properly
+using the exit command. 

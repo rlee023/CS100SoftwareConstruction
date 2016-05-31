@@ -1,0 +1,17 @@
+ps aux
+
+kill -STOP <PID>
+kill -CONT <PID>
+
+ps -eo pid,cmd,etime | awk '$0 ~ /:..:../ {print $0}' | awk '$0 !~ /awk/ {print $0}'
+
+find ~ ! -user <username>
+
+sed '1d;$d' <filename>
+
+at 2000
+find . -mmtime -1 -print
+CNTR-D
+
+grep -n "<functionName>" *
+

@@ -1,0 +1,23 @@
+                ****Design****
+                
+This is a design explanation on assignment 3. To start with, I chose to 
+implement my classes pq_zero and pq_one into a single .H files-- pq_HEAP.H 
+and pq_ZERO.H respectively. 
+
+There are two test harnesses: one.cc and zero.cc. The reason why I made two is 
+because I wanted to show that the index starts at one for the pq_one class 
+instead of 0. 
+
+Once I was able to get pq_ZERO.H to work, I made very minor changes to get
+pq_ONE.H to work. Thus, the explanation on the functionality and logic refers
+to both from here on.
+
+I used many helper functions, such as parent, left_child, right_child, 
+reset_index, print, reset_p, and build_heap on top of the helper functions 
+already in the pseudo header file given in the assignment specs. 
+
+For the most part, most of these helper functions are fairly obvious. For 
+example, Parent returns the parent given an index i, print prints out the 
+heap, priority map, and index map, reset index clears the index in a map 
+and fills it in with the current heap index values.
+

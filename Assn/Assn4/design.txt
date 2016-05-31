@@ -1,0 +1,49 @@
+Design.txt for Assignment 4
+
+The layout of my program is as follows:
+	- struct vertex
+    - dijkstra function
+    - helper functions: one_word_diff, print_neighbors, fill_neighbors, and print_parent
+    - main function
+
+**** Struct Vertex ****
+
+Vertex contains a word, a previoius word, distance from the beginning word, and a overloaded operator. Previous keeps track of the previous word, distance keeps track of the distance, and the '<' operator allows the < operator to compare different verticies. 
+
+**** dijkstra ****
+
+The dijkstra function finds the shortest path and returns a map<string, string> that contains that path. It has four parameters: map of neighbors, map of dictionary<string, int>, a begining word, and a end word. for the most part, these parameters functionality is obvious. Neighbors keeps the track of all the words in the dictionary's neighbors. dictionary contains all the words in the dictionary and their distances are initially all set to INT_MAX. 
+
+ -> Logic behind its implementation <-
+ I create a vertex called source and set it to the beginning word, a empty prev, and a distant of 0.
+
+ I then push it onto a priority queue, pq. Then, I loop until the priority queue is not empty. I take the top and set that to a arbitrary vertex called v and then pop that element from the priority queue. Then, I have a condition that checks to see if v is the ending word. If it is, I break. I iterate through my neighbors map and look for unvisited neighbors by checking if they are equal to INT_MAX. These word's distance is incrememnted and pushed onto 
+ the priority queue. 
+
+Lastly, this step is necessarily dijkstra. It just puts the path together.
+
+Int steps is the amount of steps it took to find the last word. I first insert (end word, NULL) into parent map, then set (string) link to the last word. I use a for loop to find out the previous word of last word, then insert (current word, previous word) into parents map. After updating parents map, I update the link to the previous word. The loop stops until I find all the words until the first word. In the end, the function returns a map called parents which contails all the paths of word ladder. 
+
+
+ **** Helper Functions ****
+
+ * print neighbors
+
+print_neighbors is not explicitly used in the code. However, I chose to leave it because it was a very important step in completing my program, so I decided to leave it just to show sort of an additional step I took. 
+
+* one_word_diff
+
+one_word_diff is fairly straight forward. It just increments a counter called diff every time the word is different. If diff is equal to one, this means that the word is a neighbor and the function returns true. If it doesn't equal to one, this means that the word is not a neighbor and returns false. 
+
+* fill_neighbors 
+
+Fill_neighbors just creates a map that stores the neighbors of each word. Neighbor_list is a map of string and set<string>. The string holds the word and the set<string> holds that strings neighbors.
+
+
+**** int main ****
+
+The main just calls the other functions. Essentially, I used the template provided to us on the specs. The only difference is how I store all my values and how I fill in fill_neighbors using an iterator. 
+
+
+**** Analysis **** 
+Given a start, end word, and a dictionary, this program will find the shortest word ladder between the start and end word using dijkstra's algorithm. 

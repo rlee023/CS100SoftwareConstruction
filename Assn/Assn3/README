@@ -1,0 +1,12 @@
+                    ***README****
+                    
+This is a README for assignment 3. 
+
+Instructions on how to run my program:
+1. make
+2. zero to run pq_HEAP
+3. one to run pq_ONE
+4. make clean to remove zero and one. 
+
+I tried all the functions, but I didn't have the time to rigorously test it 
+and try to break my program. 

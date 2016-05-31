@@ -1,0 +1,22 @@
+# Loop through all the files in the argument...
+while [ $# -gt 0 ]
+do
+    # just output each command and echo what it is and loop through
+    # all the arguments. 
+    echo "For $1: " 
+    
+    echo "files: "
+    find $1 -type f | wc -l  
+
+    echo "directories: "
+    find $1 -type d | wc -l
+
+    echo "size of 0: "
+    find $1 -size 0 
+    
+    echo "amount of storage space: "
+    du -h $1
+
+    #shift to parse the arguments passed in. 
+    shift
+done

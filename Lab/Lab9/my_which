@@ -1,0 +1,46 @@
+#check where the location of files are in /bin/sh 
+
+#check if the first parameter is a file
+check=false
+
+#If the first argument is a file, shift the first parameter by 1
+case "$1" in
+  -a)
+        check=true
+        shift
+        ;;
+esac
+
+# Loop through all the files in the argument...
+while [ $# -gt 0 ]
+do
+    file=$1
+    found=false
+    # Check if files starts with /
+            IFS=:
+            for dir in $PATH:
+            do
+              if [ -z "$dir" ]
+              then
+                dir="."
+              fi
+
+              # Check if the file is executable and in the directory
+              if [ -x "$dir/$file" ]
+              then
+                  echo "$dir/$file"
+                  found=true
+                  if [ "check" != true ]
+                  then
+                    # Exit after first match if no "-a" flag
+                    break
+                  fi
+              fi
+            done
+    if [ "$found" = "false" ]
+    then
+      echo $file is not found
+    fi
+    shift
+done
+

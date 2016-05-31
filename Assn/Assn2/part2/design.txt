@@ -1,0 +1,42 @@
+
+                  **** Design **** 
+
+This is an explanation of my design for myshell Assignment 2, part 2.
+
+Functsion that I added or that I modified in part 1 are the following
+	- perfectinput
+	- parse
+        - execute 
+        - main
+
+**** parse function ****
+
+The parse function calls the perfectoutput function to add a space in between commands.
+Parse also checks for <, <<, >, and & and sets the mode appropriately. Also, if this 
+condition is met, I set part2 to point to the next character. So part2 is very important for 
+myshell, especially part 2 of this assignment. If I ran the command ps aux | grep rlee023, 
+part2 would store what's after the pipe. 
+
+**** Execute function ****
+
+Unlike part1, execute also checks others conditions before it calls execvp. Now, it also
+checks for the mode and based on the mode executes different things like run a background 
+process. I use freopen to do I/O redirection. Freopen takes in a filename, or a mode: a 
+for append, r for read, and w for write. The third parameter can be stdout, stdin, or 
+stderror for read, write, and error. Dup2 takes in two parameters. I use dup2 only for pipe
+and I use it twice. So the first time I use it I write the output of the first command to 
+pipe. The second time I read from the pipe and I execute the second command. When using 
+dup2 1 is for writing and 0 is for reading. Everytime I call dup2, I have to close all the
+pipes and I have to close pipes at the very end. I have to wait twice, because there are two
+commands being executed. For background, I call setpidgid to set process to background and 
+in the parent process I don't wait for the job because it's running in the background.  
+
+**** main function ****
+
+Essentially, the main function is the body. The main asks the user to pass in a 
+command and it checks the command with a parsing function. Then it checks if it's a 
+exit, cs, or a command done with exec. There are now more arguments that I had to add for functions
+like parse. Parse now has a background counter and it has a char ** whose functionality is explained 
+in the execute explanation. Since the functionality of perfectinput is fairly simple and very specific, 
+I chose to explain that in the parse explanation block. As instructed, I got rid of all explanations from
+part 1 and made it part 2 specific. 

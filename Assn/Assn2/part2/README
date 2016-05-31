@@ -1,0 +1,13 @@
+****README for Assignment 2 part 2
+
+Essentially, the name of the program is the same as before, myshell.cc 
+
+In order to run it, simply make using make and type in myshell into the command 
+line.
+
+What I was able to do:
+
+I was able to get everything else but the correct background job id. I was able to get it
+from the background because when I hit ctrl-c background job doesn't terminate, but I wasn't
+able to get the job id for the background job. 2 Pipe, <, >, >>, and 2> seems to work from
+what I've tested. 

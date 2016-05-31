@@ -1,0 +1,35 @@
+                              **** Design **** 
+
+This is an explanation of my design for myshell Assignment 2, part 1.
+
+I impleneted a basic shell using four main functions
+        - parse function
+        - execute funciton
+        - signal handler function
+        - main function
+
+**** parse function ****
+
+The parse function does exactly what it sounds like it does. It parses through the
+command given by the user. It ignores things like new lines, spaces, and tabs and 
+stores the rest of the commands into a char**. 
+
+**** Execute function ****
+
+The execute function also does exactly what one would expect it to do, it executes 
+a command given by the user. It passes in a char** or char * [] and forks a new process.
+
+**** Signal handler function ****
+
+The signal handler is used to account for ctrl-c. Since this is a pseudo-shell, the
+shell certainly shouldn't terminate if someone presses ctrl-c. 
+
+**** main function ****
+
+Essentially, the main function is the body. It calls the other three functions and performs and infinite loop in order to keep reading commands unless exit is passed into the 
+command line. The main is also responsible for checking if the command passed in is cd 
+or exit and is done using strcmp. If the command passed in is exit, I call exit(1). If
+the command is cd, I use chdir to change to a directory if a path is specified. Otherwise,
+I would go to the home directory.
+
+All in all, that pretty much sums up how I designed my myshell! ;) 

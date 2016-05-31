@@ -1,0 +1,31 @@
+**** README **** 
+
+I was not able to get min and max for my_find...
+
+Script instructions
+1. chmod 755 <filename>
+
+2. 
+-> make_clean
+* The default with no parameters is your current directory. Alternatively, you can provide a specific path into argument 1. 
+* ./make_clean.sh
+
+2.
+-> mkdir_hierarchy
+* Use the file as the first argument. 
+* ex: ./mkdir_hierarchy file
+
+2.
+->Need to provide a directory right after my_find.sh and then provide whichfunction of myfind you want to use and then something like a file. Essentially, it works the same way as the find command without the ability to do min and max depth. 
+Ex1: my_find.sh <directorys> -type -d
+Ex2: my_find.sh <directorys> -type -f
+Ex3: my_find.sh <directorys> -name <filename>
+Ex4: my_find.sh <directorys> -newer <filename>
+Ex5: my_find.sh <directorys> -type -d -exec <another command> {} \;
+Ex6: my_find.sh <directorys> -type -f -exec <another command> {} \;
+Ex7: my_find.sh <directorys> -name <filename> -exec <another command> {} \;
+Ex8: my_find.sh <directorys> -newer <filename> -exec <another command> {} \;
+**** Inheritance
+
+There are many files, so I chose to put it into a seperate folder.
+Simply make and then run with a.out. 

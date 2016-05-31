@@ -1,0 +1,53 @@
+#
+# Course: CS 100 Summer Session 2 2013
+#
+# First Name: Ryan
+# Last Name: Lee
+# Username: rlee023
+# email address: rlee023@ucr.edu
+#
+# Assignment: assn5
+# Filename: make_clean.sh
+#
+# I hereby certify that the contents of this file represent
+# my own original individual work. Nowhere heren is there 
+# code from any outside resources such as another individual, 
+# a website, or publishings unless specifically designated as 
+# permissible by the instructor or TA. 
+#
+
+FILE=$1
+
+CUR_DIR=$PWD
+#mk="mkdirhier "
+read word < $FILE
+echo $word
+#set check to 0 because I want to make the first item into a 
+# directory only once
+check=0
+while read word
+do
+    # only create the first directory once
+	if [ $check -eq 0 ] ; then
+		curr="./"
+		curr=$curr$word
+		mkdir $curr
+		check=1
+		cd $curr
+	elif [ $word != "-" ] ; then
+		if [ $check -ne 0 ] ; then
+        #make a directory with the first Item after the '-'
+	        mkdir $word	
+        	fi     
+	else
+        # Get the path of the next word and get it's directory
+        # from current directory by using the find command
+        # then cd into it. 
+		read word
+                
+                if [ ! -z $word ] ; then
+                    DIR=`find $CUR_DIR -name $word`
+		    cd $DIR
+                fi
+	fi
+done < $FILE

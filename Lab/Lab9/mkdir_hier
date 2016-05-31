@@ -1,0 +1,24 @@
+#!/bin/bash
+
+FILE=$1
+command="mkdirhier ./"
+check=false
+tick=-
+while read x
+do
+    for Word in $x
+    do
+        #echo "."
+        if[ "$x" -eq '-' ] ; then
+            $check=true
+            break;
+        fi
+    done
+    
+    if[ $check -eq "true" ]
+    then
+        break
+    fi
+done < $FILE
+
+#`$command`
