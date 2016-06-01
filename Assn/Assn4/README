@@ -1,6 +1,0 @@
-README
-
-This is a README for assignment 4. Everything works, but I had problems with the priority queue, so I was forced to use
-to the stl one. I mean, I spent many hours and gave up early submission to try and fix it, but I just couldn't figure out the
-reason because debugging with 10 thousand words is very very difficult. I tried seeing what the problem might be with my old test
-harness, but I couldn't find it.  
